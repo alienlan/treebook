@@ -1,0 +1,36 @@
+NOTES
+
+Ruby Notes
+
+To create a new column in the table Statuses, I did this:
+
+rails generate migration add_user_id_to_statuses
+
+Then I went into the DB, migration file and added this
+
+class AddUserIdToStatuses < ActiveRecord::Migration
+  def change
+  add_column :statuses, :user_id, :integer
+  add_index :statuses, :user_id
+  remove_column :statuses, :name
+  end
+end
+
+I then re-ran this command:
+
+rake db:migrate
+
+GIT
+
+https://help.github.com/articles/create-a-repo
+
+"git init" within the project folder to create the GIT repo
+"git add ."  to add all to repo in the folder
+"git commit -m "commit message" to stage
+create a project on GitHub
+"git remote add origin https://github.com/alienlan/name" to add remote
+"git push origin master" to push to origin master
+
+So, if I want get changes from the remote repository called “origin” into my local repository I’ll type git fetch origin and you might see some output like this:
+
+http://longair.net/blog/2009/04/16/git-fetch-and-merge/
